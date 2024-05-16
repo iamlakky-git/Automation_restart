@@ -4,6 +4,7 @@ import Utility.ReadJson;
 import applicationPages.Flights;
 import baseClass.Browsers;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -17,8 +18,8 @@ public class testFlight extends Browsers {
 
     private WebDriver driver;
 
-
-    public void testSearchFlight() throws IOException, ParseException {
+    @BeforeClass
+    public void testSearchFlight() throws IOException, ParseException, org.json.simple.parser.ParseException {
         String browserName = new ReadJson().Read_the_value_from_json(path,"Browser");
         String url = new  ReadJson().Read_the_value_from_json(path,"URL");
         String airport = new  ReadJson().Read_the_value_from_json(path,"airport");
@@ -27,16 +28,21 @@ public class testFlight extends Browsers {
     }
 
     @Test
-    public void test() throws IOException, ParseException, org.json.simple.parser.ParseException {
+    public void searchAgain(){
+
+        flights.SearchFlight();
+    }
+
+    @Test
+    public void test() throws IOException, org.json.simple.parser.ParseException, InterruptedException {
         String tt = new ReadJson().Read_the_value_from_json(path,"airport");
         System.out.println(tt);
         flights =new Flights(driver);
 
-
-
-
-      //  flights.Book_one_way_ticket();
-
+        flights.Book_one_way_ticket();
+        flights.book_a_ticket(new ReadJson().Read_the_value_from_json(path,"text"));
+        flights.Enter_Departure_date();
+        flights.SearchFlight();
 
     }
 

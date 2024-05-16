@@ -1,7 +1,7 @@
 [
   {
-  "Browser" : "Chrome",
-  "URL": "https://www.yatra.com/",
+    "Browser" : "Chrome",
+    "URL": "https://www.yatra.com/",
     "airport": "Indiram Gandhi International",
     "text": "new"
   }

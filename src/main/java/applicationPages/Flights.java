@@ -1,6 +1,7 @@
 package applicationPages;
 
 import basePages.Base_page;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,12 +61,13 @@ public class Flights extends Base_page {
         click(goingTo);
         Thread.sleep(2000);
         send_keys(goingTo, text3);
-        int count_of_airpots1 = getEl(goingToList).size();
+        int count_of_airports1 = getEl(goingToList).size();
         System.out.println("count of Airpots:-- " + count_of_airpots);
         Thread.sleep(4000);
 
-        for (WebElement element : getEl(goingToList)) {
-            if (element.getText().contains(text4)) {
+      //  for (WebElement element : getEl(goingToList)) {
+        for (WebElement element : getEl(name_of_airpots)) {
+            if (element.getText().contains(text2)) {
                 element.click();
                 break;
             }
@@ -80,7 +82,10 @@ public class Flights extends Base_page {
 
     }
 
+    @Test
+
     public void SearchFlight(){
+
         click(SearchFlight);
     }
 
